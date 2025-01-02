@@ -28,3 +28,18 @@ type Discount struct {
 	DateCreated     time.Time `json:"dateCreated"`
 	DateUpdated     time.Time `json:"dateUpdated"`
 }
+
+type Order struct {
+	Id             int       `json:"id" gorm:"type:INT(10) UNSIGNED NOT NULL AUTO_INCREMENT;primaryKey"`
+	CashierId      int       `json:"cashierId"`
+	PaymentTypesId int       `json:"paymentTypesId"`
+	TotalPrice     int       `json:"totalPrice"`
+	TotalPaid      int       `json:"totalPaid"`
+	TotalReturn    int       `json:"totalReturn"`
+	ReceiptId      string    `json:"receiptId"`
+	IsDownload     int       `json:"isDownload"`
+	ProductId      string    `json:"productId"`
+	Quantities     string    `json:"quantities"`
+	DateCreated    time.Time `json:"dateCreated"`
+	DateUpdated    time.Time `json:"dateUpdated"`
+}
