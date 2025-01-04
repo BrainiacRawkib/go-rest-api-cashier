@@ -43,3 +43,7 @@ func main() {
 	// Load MySQL DB details
 	loadMySqlDBCreds()
 }
+
+func AutoMigrate(conn *gorm.DB) {
+
+}
