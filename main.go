@@ -1,6 +1,7 @@
 package main
 
 import (
+	"cashier/models"
 	"fmt"
 	"os"
 
@@ -34,6 +35,9 @@ func loadMySqlDBCreds() {
 
 	DB = db
 	fmt.Println("DB connection successful!")
+
+	// Auto migrate
+	AutoMigrate(DB)
 }
 
 func main() {
@@ -45,5 +49,18 @@ func main() {
 }
 
 func AutoMigrate(conn *gorm.DB) {
-
+	conn.Debug().AutoMigrate(
+		&models.Cashier{},
+		&models.Category{},
+		&models.Discount{},
+		&models.Order{},
+		&models.Payment{},
+		&models.PaymentType{},
+		&models.Product{},
+		&models.ProductOrder{},
+		&models.ProductResponseOrder{},
+		&models.ProductResult{},
+		&models.RevenueResponse{},
+		&models.SoldResponse{},
+	)
 }
